@@ -55,7 +55,7 @@ def main():
         "調理したい材料を入力してください（材料はカンマで区切ってください）。",
         "onion, chorizo, chicken thighs, paella rice, frozen peas, prawns",
     )
-    session_state.execute_recsys = st.button("Give me recommendations!")
+    session_state.execute_recsys = st.button("おすすめを教えてください!")
 
     if session_state.execute_recsys:
 
