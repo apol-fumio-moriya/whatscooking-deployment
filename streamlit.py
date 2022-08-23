@@ -80,13 +80,13 @@ def main():
         # st.write("Either pick a particular recipe or see the top 5 recommendations.")
         recipe_all_box = st.selectbox(
             "トップ5のおすすめレシピを見るか、特定のレシピを選ぶか、どちらかを選んでください。",
-            ["Show me them all!", "Select a single recipe"],
+            ["すべて表示", "レシピを1つだけ表示する"],
         )
-        if recipe_all_box == "Show me them all!":
+        if recipe_all_box == "すべて表示":
             st.write(session_state.recipe_display, unsafe_allow_html=True)
         else:
             selection = st.selectbox(
-                "Select a delicious recipe", options=session_state.recipes
+                "美味しいレシピを選ぶ", options=session_state.recipes
             )
             selection_details = session_state.recipe_df_clean.loc[
                 session_state.recipe_df_clean.recipe == selection
@@ -95,7 +95,7 @@ def main():
             st.subheader(f"Website: {selection_details.url.values[0]}")
             ingredients_disp = selection_details.ingredients.values[0].split(",")
 
-            st.subheader("Ingredients:")
+            st.subheader("原材料名:")
             col1, col2 = st.beta_columns(2)
             ingredients_disp = [
                 ingred
